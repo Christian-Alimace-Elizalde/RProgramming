@@ -9,7 +9,7 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Using Vectors
+# USING VECTORS
 ```{r}
 LETTERS
 ```
@@ -73,7 +73,7 @@ CityTemp[3:4 ,]
 CityTemp[1 ,]
 CityTemp[6 ,]
 ```
-#USING MATRICES
+# USING MATRICES
 #2. 
 #a.
 ```{r}
@@ -110,8 +110,22 @@ multiplied
 ```
 #h.
 ```{r}
-dim(multiplied) <- dim(6, 2)
+dim(multiplied) <- c(6, 2)
+multiplied
 ```
+# USING ARRAYS
+#3
+#a.
+```{r}
+array1 <- array(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), c(2,4,3))
+array1
+```
+#b. the array has 3 dimensions
+#c.
+```{r}
+dimnames(array1) <- list(c("a", "b"), c("A", "B", "C", "D"), c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array"))
+array1
 
+```
 
 
