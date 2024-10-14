@@ -1,0 +1,81 @@
+---
+title: "RWorksheet_Elizalde#4a"
+author: "Christian Alimace Elizalde"
+date: "2024-10-14"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#1. The table below shows the data about shoe size and height. Create a data frame.
+```{r}
+new_data <- read.csv("/cloud/project/Rworksheet4a/SshG.csv")
+new_data
+```
+#a. Describe the data.
+#the data shows the shoe size, height, and gender.
+
+#b. Create a subset by males and females with their corresponding shoe size and height. What its result? Show the R scripts.
+```{r}
+male <- subset(new_data, Gender == "M" & Height & Shoe.size)
+male
+female <- subset(new_data, Gender == "F" & Height & Shoe.size)
+female
+
+```
+#c. Find the mean of shoe size and height of the respondents. Write the R scripts and its result.
+```{r}
+mSS <- mean(new_data$Shoe.size)
+mSS
+mH <- mean(new_data$Height)
+mH
+```
+#d. Is there a relationship between shoe size and height? Why?
+#Yes because taller individuals have larger shoe size while small individuals have smaller shoe size.
+
+#2. Construct character vector months to a factor with factor() and assign the result to factor_months_vector. Print out factor_months_vector and assert that R prints out the factor levels below the actual values.
+```{r}
+months <- c("March","April","January","November","January",
+"September","October","September","November","August",
+"January","November","November","February","May","August","July","December","August","August","September","November","February","April")
+months
+```
+```{r}
+factor_months_vector <- factor(months)
+factor_months_vector
+```
+
+#3. Then check the summary() of the months_vector and factor_months_vector. | Inter-pret the results of both vectors. Are they both equally useful in this case?
+#The result of months vector prints the length, class, and mode while the factor_months_vector prints the number of how many times a month has been mentioned in the vector. They are both useful.
+```{r}
+summ <- summary(months)
+summ
+```
+```{r}
+fsumm <- summary(factor_months_vector)
+fsumm
+```
+#4. Create a vector and factor for the table below.
+```{r}
+Direction <- c("East", "West", "North")
+Frequency <- c(1,4,3)
+factor_data <- data.frame(Direction, Frequency)
+factor_data
+```
+```{r}
+new_order_data <- factor(factor_data, levels = c("East","West","North"))
+print(new_order_data)
+```
+#5. Enter the data below in Excel with file name = import_march.csv
+#a. Import the excel file into the Environment Pane using read.table() function. Write the code.
+```{r}
+readT <- read.table("import_march.csv", header = TRUE, sep = ",")
+readT
+```
+#b. View the dataset. Write the R scripts and its result.
+```{r}
+print(readT)
+```
+
