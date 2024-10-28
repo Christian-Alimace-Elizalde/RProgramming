@@ -78,4 +78,98 @@ readT
 ```{r}
 print(readT)
 ```
+#6. Full Search
+
+```{r}
+num <- as.numeric(readline(prompt = "Enter a number from 1 to 50: "))
+if(!is.na(num) == 20){
+  print("TRUE")
+}else if (!is.na(num) >=1 && num <=50){
+  num
+}else {
+  print("The number selected is beyond the range of 1 to 50.")
+}
+
+```
+#7. Change
+```{r}
+snack <- as.numeric(readline(prompt="Enter price of snack: "))
+minBills <- function(snack) {
+  bills <- 0
+  
+  if (!is.na(snack) >= 1000) {
+    bills <- bills + snack %/% 1000
+    snack <- snack %% 1000
+  }
+  if (!is.na(snack) >= 500) {
+    bills <- bills + snack %/% 500
+    snack <- snack %% 500
+  }
+  if (!is.na(snack) >= 200) {
+    bills <- bills + snack %/% 200
+    snack <- snack %% 200
+  }
+  if (!is.na(snack) >= 100) {
+    bills <- bills + snack %/% 100
+    snack <- snack %% 100
+  }
+  if (!is.na(snack) >= 50) {
+    bills <- bills + snack %/% 50
+    snack <- snack %% 50
+  }
+  return(bills)
+}
+minBills(snack)
+
+
+```
+#8. 
+#a. create a data frame frome the above table. Write the codes and its output
+```{r}
+df <- data.frame(Name = c("Annie", "Thea", "Steve", "Hanna"),
+                 Grade1 = c(85, 65, 75, 95),
+                 Grade2 = c(65, 75, 55, 75),
+                 Grade3 = c(85, 90, 80, 100),
+                 Grade4 = c(100, 90, 85, 90))
+df
+```
+#b. 
+```{r}
+avg_scores <- rowSums(df[,-1]) / (ncol(df) - 1)
+if (any(avg_scores > 90)) {
+high_avg_names <- df$Name[avg_scores > 90]
+high_avg_scores <- avg_scores[avg_scores > 90]
+print0(paste(high_avg_names, "'s average grade this semester is ", high_avg_scores))
+} else {
+cat("No student's average grade is over 90.")
+}
+
+
+```
+
+#c.
+```{r}
+test_avg <- colSums(df[, -1]) / nrow(df)
+
+if(any(test_avg < 80)){
+  test_hard <- which(test_avg<80)
+
+cat(paste("The test", test_hard, "was difficult."))
+ }else {
+cat("All tests had an average scores of 80 or above.")
+
+}
+```
+#d.
+```{r}
+high_score <- apply(df[,-1], 1, function(x) sort(x, decreasing = TRUE)[1])
+if (any(high_score > 90)) {
+hnames <- df$Name[high_score > 90]
+hscores <- high_score[high_score > 90]
+cat(paste(hnames, "'s highest grade this semester is ", hscores,".\n"))
+} else {
+cat("No student's highest grade exceeded 90.")
+}
+
+```
 
