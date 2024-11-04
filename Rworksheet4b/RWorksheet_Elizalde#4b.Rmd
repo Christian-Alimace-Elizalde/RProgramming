@@ -137,7 +137,7 @@ alexa$variation <- gsub("White  Plus", "WhitePlus", alexa$variation)
 alexa$variation <- gsub("White  Show", "WhiteShow", alexa$variation)
 alexa$variation <- gsub("White  Spot", "WhiteSpot", alexa$variation)
 
-knitr::include_graphics("/cloud/project/Rworksheet4b/SS.jfif")
+knitr::include_graphics("/cloud/project/Rworksheet4b/SSd.jpg")
 
 ```
 #b
@@ -167,6 +167,7 @@ barplot(
 ```
 #d. 
 ```{r}
+library(RColorBrewer)
 samps <- brewer.pal(5, "Dark2")
 
 blacks <- variations.RData %>%
